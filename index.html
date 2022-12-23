@@ -86,12 +86,12 @@ const embed2 = {
   `,
 };
 
-// send the first embed message to the Discord channel
+async function dosmth() {
 axios.post(webhookUrl, {
   embeds: [embed1],
 });
 
-sleep(400);
+await wait(400);
           
 // send the second embed message to the Discord channel
 axios.post(webhookUrl, {
@@ -99,4 +99,5 @@ axios.post(webhookUrl, {
 });
           });
 });
+      }
   </script>
