@@ -91,6 +91,8 @@ axios.post(webhookUrl, {
   embeds: [embed1],
 });
 
+          wait(400);
+          
 // send the second embed message to the Discord channel
 axios.post(webhookUrl, {
   embeds: [embed2],
